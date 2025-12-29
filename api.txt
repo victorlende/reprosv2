@@ -1,0 +1,58 @@
+<?php
+// contoh proccode = 180V82, tanggal = 2025-12-21, source = psw1
+function call_api($proccode, $tanggal, $source) {
+    $CI = &get_instance();
+
+    $api_url = $CI->session->userdata('env_url');
+    if (empty($api_url)) {
+        return (object) [
+            'success' => false,
+            'message' => 'Belum ada environment yang dipilih.'
+        ];
+    }
+
+    $ch = curl_init();
+
+    curl_setopt($ch, CURLOPT_URL, $api_url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
+
+    $data = [
+        'proccode'  => $proccode,
+        'transdate' => $tanggal,
+        'psw'       => $source
+    ];
+
+    // Hitung hash SHA-256 sebagai Authorization header
+    $sha256_hash = hash('sha256', json_encode($data));
+    $header = [
+        'Authorization: ' . $sha256_hash,
+        'Accept: application/json',
+        'Content-Type: application/json',
+    ];
+
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+
+    $result = curl_exec($ch);
+
+    if ($result === false) {
+        // Anda bisa ganti alert() menjadi logging atau return detail error
+        $error_message = curl_error($ch);
+        echo "<script>alert('Curl error: {$error_message}');</script>";
+        curl_close($ch);
+        return (object) [
+            'success' => false,
+            'message' => 'Curl error: ' . $error_message
+        ];
+    }
+
+    curl_close($ch);
+
+    // Jika API mengembalikan JSON, decode; 
+    // ubah jadi array atau object sesuai kebutuhan
+    return json_decode($result);
+}

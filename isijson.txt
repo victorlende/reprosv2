@@ -1,0 +1,261 @@
+{
+  "proccode": "180V82,180G12",
+  "transdate": "18/12/25",
+  "status": "SUKSES",
+  "source": "psw1",
+  "xdatatemp": [
+    {
+      "Wisocode": "210",
+      "Wdatepost": "18/12/25",
+      "Wtxtime": "0",
+      "Wtxcode": "?",
+      "Wbrnchcode": "0",
+      "Wauthotel": "?",
+      "Wtellid": "001001",
+      "Wtxseqnum": "20205793",
+      "Wtelseqnum": "0",
+      "WRemoteAccNo": "BNTT2740",
+      "Wtoaccno": "?",
+      "Wccycode": "360",
+      "Wactname": "?",
+      "Wpbbalnc": "0",
+      "Wavlbalnc": "0",
+      "Wtxamount": "460152",
+      "Wchqnumber": "?",
+      "Wlinepb": "0",
+      "Wstatproc": "00",
+      "Wproccode": "180V82",
+      "Wresponcode": "00",
+      "Wwithpassbook": "?",
+      "Wsavdate": [
+        "0",
+        "?",
+        "?",
+        "?",
+        "?"
+      ],
+      "Wsavtxtype": [
+        "?",
+        "?",
+        "?",
+        "?",
+        "?"
+      ],
+      "Wsavamount": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "Wsavtlrid": [
+        "?",
+        "?",
+        "?",
+        "?",
+        "?"
+      ],
+      "Wsavlinepb": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "Wsavpbbal": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "Wfirstdata": [
+        "?",
+        "BNTT2740",
+        "000000815119",
+        "?",
+        "0000000",
+        "1300000",
+        "?",
+        "?",
+        "6010",
+        "?"
+      ],
+      "Wseconddata": [
+        "TELLER",
+        "85000",
+        "4250003598",
+        "?",
+        "?",
+        "?",
+        "?",
+        "?",
+        "?",
+        "",
+        "05PT. FLORES TIRTA RANAKA     ",
+        "    2025-11-01                ",
+        "",
+        "",
+        "      2025-11-30              ",
+        "        4.1.01.12.01.0001     ",
+        "000000",
+        "?",
+        "?",
+        "@MBAPBB#"
+      ],
+      "av$WextcharA": [
+        "?",
+        "?"
+      ],
+      "av$WextcharB": [
+        "?",
+        "?"
+      ],
+      "Wtransdate": "18/12/25",
+      "Wactamount": "0",
+      "Wtranstime": "28640",
+      "Wtermid": "2740",
+      "Wprodtype": "2",
+      "Wnarrative": "224056336",
+      "Wnarrativepsw1": "4250003598",
+      "Wsendfile": "?",
+      "Wsubtype": "?",
+      "Wsendbranch": "4033",
+      "atmlongdata": "VI105V3005312001124250003598                      KAB. MANGGARAI                                    PAJAK AIR TANAH                                   0                               CFB3510CE9FE779B0000000000000000AE7914844F36423D93EAD2A863D08074FOXD1DDR9TS1N6L9                9999123100000000000046015200000000000460152000000000004601520000000000000000000000000000000000000000000PT. FLORES TIRTA RANAKA  KEL. GOLO DUKAL, KEC. LAN-        GOLO DUKAL               LANGKE REMBONG           -                        0000-KEL. GOLO DUKAL, KEC. LAN-        5312081007               5312081                  -                        000000000000                        P100014045312       4250003598          "
+    }
+]
+}
+
+
+
+
+// BPTHB
+0 hasil ditemukan
+   
+{
+  "proccode": "180V42,180E10",
+  "transdate": "18/12/25",
+  "status": "SUKSES",
+  "source": "psw1",
+  "xdatatemp": [
+    {
+      "Wisocode": "210",
+      "Wdatepost": "18/12/25",
+      "Wtxtime": "0",
+      "Wtxcode": "?",
+      "Wbrnchcode": "0",
+      "Wauthotel": "?",
+      "Wtellid": "003224",
+      "Wtxseqnum": "20206955",
+      "Wtelseqnum": "0",
+      "WRemoteAccNo": "BNTT3224",
+      "Wtoaccno": "?",
+      "Wccycode": "360",
+      "Wactname": "?",
+      "Wpbbalnc": "0",
+      "Wavlbalnc": "0",
+      "Wtxamount": "236500",
+      "Wchqnumber": "?",
+      "Wlinepb": "0",
+      "Wstatproc": "00",
+      "Wproccode": "180V42",
+      "Wresponcode": "00",
+      "Wwithpassbook": "?",
+      "Wsavdate": [
+        "0",
+        "?",
+        "?",
+        "?",
+        "?"
+      ],
+      "Wsavtxtype": [
+        "?",
+        "?",
+        "?",
+        "?",
+        "?"
+      ],
+      "Wsavamount": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "Wsavtlrid": [
+        "5310",
+        "?",
+        "?",
+        "?",
+        "?"
+      ],
+      "Wsavlinepb": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "Wsavpbbal": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "Wfirstdata": [
+        "?",
+        "2025",
+        "000000816713",
+        "?",
+        "1300000",
+        "1300000",
+        "?",
+        "?",
+        "6010",
+        "?"
+      ],
+      "Wseconddata": [
+        "TELLER",
+        "85000",
+        "VI105V3005310000202025531002400100100720               ",
+        "?",
+        "?",
+        "?",
+        "?",
+        "?",
+        "0010000000000000236500",
+        "112025-04-25                      2025-04-25                      300                             89                              069                             024                             184200000                       62300000                        246500000                       10000000                        236500000                       ",
+        "?",
+        "?",
+        "?",
+        "?",
+        "?",
+        "?",
+        "202069",
+        "Anda masih memiliki tunggakan tahun :  2013  2012  2011  2010  2008 ",
+        "?",
+        "@MBAPBB#"
+      ],
+      "av$WextcharA": [
+        "?",
+        "?"
+      ],
+      "av$WextcharB": [
+        "?",
+        "?"
+      ],
+      "Wtransdate": "18/12/25",
+      "Wactamount": "236500",
+      "Wtranstime": "32937",
+      "Wtermid": "3224",
+      "Wprodtype": "2",
+      "Wnarrative": "?",
+      "Wnarrativepsw1": "?",
+      "Wsendfile": "?",
+      "Wsubtype": "?",
+      "Wsendbranch": "4040",
+      "atmlongdata": "VI105V3005310000202025531002400100100720          KAB ENDE                                          PBB                                               0                               35939C04B44B467BB66E2EED46DBF9CFB80F3942F90682A00000000000000000406E8C15D7FF49C9B90C8D50CD0B19202025123100000000000023650000000000000236500000000000002365000000000000000000000000000000000000000000000YOHANES K. BRUNO WARA    JL EL TARI               /        MAUTAPAGA                                         E N D E                  00000JL EL TARI               /        MAUTAPAGA                ENDE TIMUR               E N D E                  "
+    }
+]
+}
