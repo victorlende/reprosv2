@@ -42,6 +42,16 @@ class Proccode extends Model
         return $this->belongsTo(District::class);
     }
 
+    public function emailDestinations()
+    {
+        return $this->hasMany(EmailDestination::class);
+    }
+
+    public function reconciliationSubmissions()
+    {
+        return $this->hasMany(ReconciliationSubmission::class);
+    }
+
     public function scopeActive($query)
     {
         return $query->where('is_active', true);

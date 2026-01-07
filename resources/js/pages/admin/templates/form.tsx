@@ -69,12 +69,20 @@ interface Template {
     is_active: boolean;
 }
 
+interface HeaderTemplate {
+    id: number;
+    name: string;
+    description: string | null;
+    schema: ColumnMapping[];
+}
+
 interface Props {
     template: Template | null;
     vendors: Vendor[];
     categories: string[];
     availableProcessors: Processor[];
     proccodes: { code: string; name: string; source: string }[];
+    headerTemplates: HeaderTemplate[];
 }
 
 const getBreadcrumbs = (template: Template | null): BreadcrumbItem[] => [
@@ -83,7 +91,8 @@ const getBreadcrumbs = (template: Template | null): BreadcrumbItem[] => [
     { title: template ? 'Edit' : 'Tambah', href: template ? `/admin/templates/${template.id}/edit` : '/admin/templates/create' },
 ];
 
-function TemplateForm({ template, vendors, categories, availableProcessors, proccodes }: Props) {
+function TemplateForm({ template, vendors, categories, availableProcessors, proccodes, headerTemplates }: Props) {
+
     const [columns, setColumns] = useState<ColumnMapping[]>(
         template?.mapping?.table_columns || [
             { label: '', path: '', type: 'string' }
@@ -709,19 +718,52 @@ function TemplateForm({ template, vendors, categories, availableProcessors, proc
                                         </div>
                                     )}
 
+
+
                                     {/* Column Mapping */}
                                     <div className="space-y-4">
-                                        <div className="flex justify-between items-center">
+                                        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                                             <div>
                                                 <Label className="text-base">Mapping Kolom Tabel *</Label>
                                                 <p className="text-sm text-muted-foreground mt-1">
                                                     Definisikan kolom yang akan ditampilkan di tabel
                                                 </p>
                                             </div>
-                                            <Button type="button" variant="outline" size="sm" onClick={addColumn}>
-                                                <Plus className="mr-2 h-4 w-4" />
-                                                Tambah Kolom
-                                            </Button>
+                                            <div className="flex gap-2">
+                                                <Select
+                                                    onValueChange={(val) => {
+                                                        const selected = headerTemplates.find(h => h.id.toString() === val);
+                                                        if (selected) {
+                                                            if (confirm(`Load template "${selected.name}"? Ini akan menimpa kolom saat ini.`)) {
+                                                                const newCols = selected.schema.map(col => ({
+                                                                    label: col.label,
+                                                                    path: col.path || '',
+                                                                    type: col.type,
+                                                                    substring_start: undefined,
+                                                                    substring_length: undefined
+                                                                }));
+                                                                setColumns(newCols);
+                                                            }
+                                                        }
+                                                    }}
+                                                >
+                                                    <SelectTrigger className="w-[200px] h-9 text-xs">
+                                                        <SelectValue placeholder="Load Template Header..." />
+                                                    </SelectTrigger>
+                                                    <SelectContent>
+                                                        {headerTemplates && headerTemplates.map(ht => (
+                                                            <SelectItem key={ht.id} value={ht.id.toString()}>
+                                                                {ht.name}
+                                                            </SelectItem>
+                                                        ))}
+                                                    </SelectContent>
+                                                </Select>
+
+                                                <Button type="button" variant="outline" size="sm" onClick={addColumn}>
+                                                    <Plus className="mr-2 h-4 w-4" />
+                                                    Tambah Kolom
+                                                </Button>
+                                            </div>
                                         </div>
 
                                         <div className="space-y-3">

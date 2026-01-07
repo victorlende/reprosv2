@@ -13,7 +13,7 @@ import {
 import { type NavItem } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
 import { useMemo } from 'react';
-import { BookOpen, Folder, LayoutGrid, Receipt, Settings, Database, FileText, Code, ArrowRightLeft, ReceiptText, User as UserIcon, MonitorCheck, FileClock, CreditCard, Building2 } from 'lucide-react';
+import { BookOpen, Folder, LayoutGrid, Receipt, Settings, Database, FileText, Code, ArrowRightLeft, ReceiptText, User as UserIcon, MonitorCheck, FileClock, CreditCard, Building2, Table, Mail, Send } from 'lucide-react';
 import AppLogo from './app-logo';
 
 
@@ -49,6 +49,18 @@ export function AppSidebar() {
             key: 'rekonsiliasi.mutasi',
         },
         {
+            title: 'Konsolidasi Data',
+            href: '/admin/konsolidasi',
+            icon: Database,
+            key: 'admin.konsolidasi',
+        },
+        {
+            title: 'Kirim Email Rekonsiliasi',
+            href: '/admin/reconciliation-submissions',
+            icon: Send,
+            key: 'admin.reconciliation-submissions',
+        },
+        {
             title: 'Admin',
             icon: Settings,
             key: 'admin',
@@ -78,6 +90,12 @@ export function AppSidebar() {
                     key: 'admin.templates',
                 },
                 {
+                    title: 'Template Header',
+                    href: '/admin/header-templates',
+                    icon: Table,
+                    key: 'admin.header-templates',
+                },
+                {
                     title: 'Proccode',
                     href: '/admin/proccodes',
                     icon: Code,
@@ -94,6 +112,12 @@ export function AppSidebar() {
                     href: '/admin/account-numbers',
                     icon: CreditCard,
                     key: 'admin.account-numbers',
+                },
+                {
+                    title: 'Email Tujuan',
+                    href: '/admin/email-destinations',
+                    icon: Mail,
+                    key: 'admin.email-destinations',
                 },
                 {
                     title: 'System Logs',
@@ -134,7 +158,7 @@ export function AppSidebar() {
         // If it has children, filter them too
         if (item.items) {
             const filteredChildren = item.items.filter(child =>
-                isSuperUser || !child.key || accessibleMenus.includes(child.key)
+                isSuperUser || !child.key || accessibleMenus.includes(child.key) || (child.key === 'admin.header-templates' && auth.user.role === 'admin')
             );
             // If no children left, and it was a grouping, maybe hide it? 
             // Or keep it if the parent itself was explicitly granted?

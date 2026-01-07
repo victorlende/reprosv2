@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Template;
 use App\Models\Vendor;
 use App\Models\Proccode;
+use App\Models\HeaderTemplate;
 use App\Services\ApiService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -54,6 +55,7 @@ class TemplateController extends Controller
         $categories = Template::distinct()->whereNotNull('category')->orderBy('category')->pluck('category');
         $processors = $this->getAvailableProcessors();
         $proccodes = Proccode::active()->orderBy('name')->get(['code', 'name', 'source']);
+        $headerTemplates = HeaderTemplate::where('is_active', true)->orderBy('name')->get();
 
         return Inertia::render('admin/templates/form', [
             'template' => null,
@@ -61,6 +63,7 @@ class TemplateController extends Controller
             'categories' => $categories,
             'availableProcessors' => $processors,
             'proccodes' => $proccodes,
+            'headerTemplates' => $headerTemplates,
         ]);
     }
 
@@ -70,6 +73,7 @@ class TemplateController extends Controller
         $categories = Template::distinct()->whereNotNull('category')->orderBy('category')->pluck('category');
         $processors = $this->getAvailableProcessors();
         $proccodes = Proccode::active()->orderBy('name')->get(['code', 'name', 'source']);
+        $headerTemplates = HeaderTemplate::where('is_active', true)->orderBy('name')->get();
 
         return Inertia::render('admin/templates/form', [
             'template' => $template,
@@ -77,6 +81,7 @@ class TemplateController extends Controller
             'categories' => $categories,
             'availableProcessors' => $processors,
             'proccodes' => $proccodes,
+            'headerTemplates' => $headerTemplates,
         ]);
     }
     
